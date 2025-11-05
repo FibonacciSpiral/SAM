@@ -1,0 +1,365 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>
+</title>
+<meta content="text/html; charset=windows-1252" http-equiv="Content-Type">
+<link type="text/css" href="../css/stylesheet.css" rel="stylesheet">
+</head>
+
+<body onunload="" onload="setNetworkState();">
+    
+<table border="0" width="100%" cellpadding="4" cellspacing="0">
+<tr bgcolor="#ffffff">
+<td>
+	<a href="https://www.edwardsvacuum.com/"><img alt="Edwards Vacuum LLC" src="../img/logo.png" border="0"/></a>
+</td>
+<td width="10">&nbsp;</td>
+<td nowrap="" width="100%" valign="middle" class="PAGEHEADER">
+</td>
+</tr>
+<tr>
+<td></td>
+<td width="10">&nbsp;</td>
+<td valign="top" width="100%">
+	<table class="STATUSBOX" border="0" cellPadding="4" cellSpacing="0" align="center" width="100%">
+	<tr>
+	<td id="status" align="left">
+		Change network settings.
+	</td>
+	</tr>
+	</table>
+
+	<table class="ERRORBOX" border="0" cellPadding="4" cellSpacing="0" align="center" width="100%">
+	<tr>
+	<td id="error" hidden align="left">
+	</td>
+	</tr>
+	</table>
+</td>
+</tr>
+<tr>
+<td valign="top" nowrap="">
+	<table border="0" width="100%" cellpadding="10" cellspacing="0">
+		<tr>
+			<td nowrap="">
+			   <a href="
+				  ../index.html">
+			   Home</a><br/>
+			   <a href="
+				  ../html/reboot.htm">
+			   Reboot</a><br/>
+			   <a href="
+			   	  ../html/setpoint_config.htm">
+			   Update Setpoint</a><br/>
+			</td>
+		 </tr>
+	</table>
+</td>
+<td width="10">&nbsp;</td>
+<td valign="top" width="100%">
+	<table border="0" width="100%" cellpadding="10" cellspacing="0" class="BORDER">
+	<tr>
+	<td width="100%" class="PAGECONTENT">
+	
+		<h1 class="CONTENTHEADER" align=center>Network Settings</h1>
+
+		<table border="0" width="100%" cellpadding="0" cellspacing="0">
+		<tr> <td> <h2>IP v4 Settings</h2></td></tr>
+		<tr><td>
+			<form method="POST" name="network_form" onsubmit="return doValidate();">
+
+			
+			<table cellspacing="0" cellpadding="2" border="0">
+			<tr>
+			<td>
+				<input type="radio" name="rbDHCP" value="enable" id="enableDHCP" onclick="setDhcpState();"/>
+				&nbsp;
+				<label for="enableDHCP">Obtain an IP address automatically</label>
+			</td>
+			</tr>
+			<tr>
+			<td>
+				<input type="radio" name="rbDHCP" value="disable" id="disableDHCP" checked="true" onclick="setDhcpState();"/>
+				&nbsp;
+				<label for="disableDHCP">Use the following IP address</label>
+			</td>
+			</tr>
+			</table>
+			  
+			<table cellspacing="0" cellpadding="2" border="0">
+			<tr>
+			<td width="40">&nbsp;</td>
+			<td nowrap="" align="right">IP v4 Address:</td>
+			<td width="10">&nbsp;</td>
+			<td>
+				<input id="ip_addr_input" type="text" name="ip_addr" value="" size="15" maxlength="15"/>
+			</td>
+			</tr>
+			<tr>
+			<td width="40">&nbsp;</td>
+			<td nowrap="" align="right">Subnet Mask:</td>
+			<td width="10">&nbsp;</td>
+			<td>
+				<input id="subnet_mask" type="text" name="submask" value="" size="15" maxlength="15"/>
+			</td>
+			</tr>
+			<tr>
+			<td width="40">&nbsp;</td>
+			<td nowrap="" align="right">Default Gateway:</td>
+			<td width="10">&nbsp;</td>
+			<td>
+				<input id="default_gw" type="text" name="gw_addr" value="" size="15" maxlength="15"/>
+			</td>
+			</tr>
+			<tr>
+			<td width="40">&nbsp;</td>
+			<td nowrap="" align="right">DNS Address:</td>
+			<td width="10">&nbsp;</td>
+			<td>
+				<input id="primary_dns" type="text" name="pdns_addr" value="" size="15" maxlength="15"/>
+			</td>
+			</tr>	
+			</table>
+			
+			<br>
+
+		</td> </tr> 
+		<tr> <td> <h2>IP v6 Settings</h2> </td> </tr>
+        <tr> <td>
+			<table cellspacing="0" cellpadding="2" border="0">
+			<tr>
+			<td>
+				<input type="radio" name="ipv6_setting" id="disable_ipv6" value="disable" onclick="setIpv6DhcpState();"/>
+				&nbsp;
+				<label for="enableDHCP">Disable IP v6</label>
+			</td>
+			</tr>
+			<td>
+				<input type="radio" name="ipv6_setting" id="ipv6_dhcp" value="dhcp" onclick="setIpv6DhcpState();"/>
+				&nbsp;
+				<label for="enableDHCP">Enable DHCP v6</label>
+			</td>
+			<tr>
+			<td>
+				<input type="radio" name="ipv6_setting" id="ipv6_static" value="static" onclick="setIpv6DhcpState();"/>
+				&nbsp;
+				<label for="disableDHCP">Use the following static IP v6 address</label>
+			</td>
+			</tr>
+			</table>
+			  
+			<table cellspacing="0" cellpadding="2" border="0">
+			<tr>
+			<td width="40">&nbsp;</td>
+			<td nowrap="" align="right">IP v6 Address:</td>
+			<td width="10">&nbsp;</td>
+			<td>
+				<input type="text" name="ipv6_addr" id="ipv6_addr" value="" size="40" maxlength="46"/>
+			</td>
+			</tr>
+			<tr>
+			<td width="40">&nbsp;</td>
+			<td nowrap="" align="right">Prefix Length:</td>
+			<td width="10">&nbsp;</td>
+			<td>
+				<input type="text" name="prefix_len" id="prefix_len" value="" size="3" maxlength="3"/>
+			</td>
+			</tr>
+			<tr>
+			<td width="40">&nbsp;</td>
+			<td nowrap="" align="right">IP v6 Gateway:</td>
+			<td width="10">&nbsp;</td>
+			<td>
+				<input type="text" name="ipv6_gateway" id="ipv6_gateway" value="" size="40" maxlength="46"/>
+			</td>
+			</tr>
+
+			</table>
+            <br>
+
+			<hr class="SEPARATORLINE">
+			    
+			<table cellSpacing="0" cellPadding="0" border="0">
+			<tr>
+			<td>
+				<input type="submit" name="apply" value="Apply">
+			</td>
+			</tr>
+			</table>
+			</form>
+		</td>
+		</tr>
+		</table>
+	</td>
+	</tr>
+	</table>
+</td>
+</tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" class="COPYRIGHT">
+    Copyright &copy; 2022 Copyright. All rights reserved.
+</td>
+</tr>
+</table>
+
+<script src="../scripts/utils.js" language="JavaScript"></script>
+<script src="../scripts/errhandler.js" language="JavaScript"></script>
+<script src="../scripts/validation.js" language="JavaScript"></script>
+<script src="../scripts/displayhandler.js" language="JavaScript"></script>
+<script language="JavaScript">
+  
+    function setDhcpState() {
+  
+        if (document.network_form.rbDHCP[0].checked) {
+            document.network_form.ip_addr.readOnly = true;
+            document.network_form.submask.readOnly = true;
+            document.network_form.gw_addr.readOnly = true;
+            document.network_form.pdns_addr.readOnly = true;        
+        } else {
+            document.network_form.ip_addr.readOnly = false;
+            document.network_form.submask.readOnly = false;
+            document.network_form.gw_addr.readOnly = false;
+            document.network_form.pdns_addr.readOnly = false;                      
+            document.network_form.ip_addr.focus();
+        }
+    }
+
+	function ipAndGatewaySameSubnet(ipAddress, gatewayAddress, subnet) {
+		ipArray = ipAddress.split('.');
+		gwArray = gatewayAddress.split('.');
+		subnetArray = subnet.split('.');
+
+		for (let i = 0; i < 4; i++) {
+			if ((gwArray[i] & subnetArray[i]) != (ipArray[i] & subnetArray[i]))
+				return false;
+		}
+
+		return true;
+	}
+  
+    var err = new ErrorHandler();
+    function doValidate() {
+        err.clearErrors(); // reset
+  
+        var ip = document.network_form.ip_addr;
+        var submask = document.network_form.submask;
+        var gw = document.network_form.gw_addr;
+        var pDNS = document.network_form.pdns_addr;
+        var prefix = document.network_form.prefix_len;
+		var ipv6_addr = document.network_form.ipv6_addr;
+		var ipv6_gw = document.network_form.ipv6_gateway;
+		var ipv6_regex = /((^\s*((([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))\s*$)|(^\s*((([0-9A-Fa-f]{1,4}:){7}([0-9A-Fa-f]{1,4}|:))|(([0-9A-Fa-f]{1,4}:){6}(:[0-9A-Fa-f]{1,4}|((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){5}(((:[0-9A-Fa-f]{1,4}){1,2})|:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){4}(((:[0-9A-Fa-f]{1,4}){1,3})|((:[0-9A-Fa-f]{1,4})?:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){3}(((:[0-9A-Fa-f]{1,4}){1,4})|((:[0-9A-Fa-f]{1,4}){0,2}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){2}(((:[0-9A-Fa-f]{1,4}){1,5})|((:[0-9A-Fa-f]{1,4}){0,3}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){1}(((:[0-9A-Fa-f]{1,4}){1,6})|((:[0-9A-Fa-f]{1,4}){0,4}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(:(((:[0-9A-Fa-f]{1,4}){1,7})|((:[0-9A-Fa-f]{1,4}){0,5}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:)))(%.+)?\s*$))/;
+		 // Trim values before validation.
+        ip.value = trim(ip.value);
+        submask.value = trim(submask.value);
+        gw.value = trim(gw.value);
+        pDNS.value = trim(pDNS.value);
+          
+        // name server is optional. Set to default value
+        // if left blank.
+        if (gw.value.length == 0)
+            gw.value = '0.0.0.0';
+
+		if(ipv6_addr.value.length == 0)
+			ipv6_addr.value = '0.0.0.0.0.0.0.0'
+
+		if(ipv6_gw.value.length == 0)
+			ipv6_gw.value = '0.0.0.0.0.0.0.0'
+  
+        // If DHCP is enabled make sure the other ip settings are at least
+        // of valid form to avoid ROMPager parsing errors. They should get
+        // tossed anyway since DHCP will aquire the values.
+        if (document.network_form.rbDHCP[0].checked) {
+            if (!isValidIP(ip.value))
+                ip.value = '0.0.0.0';
+            if (!isDottedForm(submask.value))
+                submask.value = '0.0.0.0';
+            if (!isValidIP(gw.value))
+                gw.value = '0.0.0.0';
+            if (!isValidIP(pDNS.value))
+                pDNS.value = '0.0.0.0';              
+        } else {
+            if (!isValidIP(ip.value))
+                err.addError(ip, 'Invalid or missing IP address.');
+            if (pDNS.value != '0.0.0.0' && !isValidIP(pDNS.value))
+                err.addError(pDNS, 'Invalid or missing Primary DNS address.');              
+            if (!isDottedForm(submask.value))
+                err.addError(submask, 'Invalid or missing subnet mask.');
+            else if (gw.value != '0.0.0.0' && !isValidIP(gw.value))
+                err.addError(gw, 'Invalid or missing default gateway address.');
+            else if (!isValidGateway(gw.value))
+                err.addError(gw, 'Invalid gateway address can not be 0.0.0.0.');
+			else if (!ipAndGatewaySameSubnet(ip.value, gw.value, submask.value))
+				err.addError(gw, 'Gateway address and IP address cannot be on a different subnet.');
+        }
+        if (document.network_form.ipv6_setting[2].checked) {
+            if (!isInRange(prefix.value, 0, 128)) {
+                err.addError(prefix, 'Invalid Prefix Length - enter value between 0 to 128.');
+            }
+			ipv6_addr.value = ipv6_addr.value.replace(/\./g, ":");
+			ipv6_gw.value = ipv6_addr.value.replace(/\./g, ":");
+			if (!ipv6_regex.test(ipv6_addr.value)) {
+				err.addError(ipv6_addr, 'Invalid IP v6 address format - Address should be in the form: ####.####.####.####.####.####.####.####');
+			}
+			if (!ipv6_regex.test(ipv6_gw.value)) {
+				err.addError(ipv6_gw, 'Invalid gateway address format - IP v6 address should be in the form: ####.####.####.####.####.####.####.####');
+			}
+			ipv6_addr.value = ipv6_addr.value.replace(/\:/g, ".");
+			ipv6_gw.value = ipv6_addr.value.replace(/\:/g, ".");
+        }
+  
+        err.showError();
+		if (err.hasError()==0) {
+			setTimeout(successAlert, 1000);
+			document.getElementById("status").innerHTML = "Saving...";
+		}
+        return !err.hasError();
+    }
+
+	function successAlert() {
+		document.getElementById("status").innerHTML = "Settings saved. The device must be rebooted for the settings to take effect.";
+		setTimeout(() => { 
+			alert('Settings validated! Please reboot the device in order for the changes to take effect.');
+		}, 500);
+	}
+
+	function setIpv6DhcpState() {
+  
+        if (document.network_form.ipv6_setting[0].checked) {
+            document.network_form.ipv6_addr.readOnly = true;
+            document.network_form.prefix_len.readOnly = true;
+			document.network_form.ipv6_gateway.readOnly = true;
+			document.network_form.ipv6_setting.value = "disable";
+        } else if(document.network_form.ipv6_setting[1].checked){
+            document.network_form.ipv6_addr.readOnly = true;
+            document.network_form.prefix_len.readOnly = true;
+			document.network_form.ipv6_gateway.readOnly = true;
+			document.network_form.ipv6_setting.value = "dhcp";
+        } else {
+			document.network_form.ipv6_addr.readOnly = false;
+            document.network_form.prefix_len.readOnly = false;
+			document.network_form.ipv6_gateway.readOnly = false;
+			document.network_form.ipv6_setting.value = "static";
+			document.network_form.ipv6_addr.focus();
+		}
+	}
+
+    function setNetworkState() {
+        setDhcpState();
+        setIpv6DhcpState();
+    }
+
+	document.getElementById("status").innerHTML = "Change network settings.";
+    document.getElementById("error").innerHTML = "";
+	document.getElementById("error").style.display = "none";
+	updateDisplay('network');
+  
+  </script>
+
+</body>
+</html>
+

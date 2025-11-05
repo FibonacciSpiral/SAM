@@ -1,0 +1,126 @@
+<html>
+<!-- RpPageHeader RpAccess=Realm1 -->
+<head>
+<!-- RpDisplayText RpGetType=Complex RpGetPtr=getRebootStatusMetaTag RpTextType=ASCIIExtended -->
+<META HTTP-EQUIV="Refresh" CONTENT="45;URL=http://localhost">
+<!-- RpEnd -->
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>
+	<!-- RpDisplayText RpIdentifier=rebootStatus_getProductNameId 
+	     RpSize=20 RpTextType=ASCIIExtended RpGetType=Complex RpGetPtr=rebootStatus_getProductName -->
+	    <!-- RpEnd -->
+</title>
+<meta content="text/html; charset=windows-1252" http-equiv="Content-Type">
+<link type="text/css" href="../css/stylesheet.css" rel="stylesheet">
+<script src="../scripts/utils.js" language="JavaScript"></script>
+<script src="../scripts/errhandler.js" language="JavaScript"></script>
+<script src="../scripts/validation.js" language="JavaScript"></script>
+</head>
+
+<body onunload="" onload="">
+    
+<table border="0" width="100%" cellpadding="4" cellspacing="0">
+<tr bgcolor="#ffffff">
+<td>
+	<a href="http://www.digi.com/"><img alt="Digi International" src="../img/logo.png" border="0"/></a>
+</td>
+<td width="10">&nbsp;</td> <!-- Spacer -->
+<td nowrap="" width="100%" valign="middle" class="PAGEHEADER">
+	<!-- RpUseId RpId=rebootStatus_getProductNameId RpItemType=DisplayText -->  <!-- RpEnd -->
+</td>
+</tr>
+<tr>
+<td></td>
+<td width="10">&nbsp;</td> <!-- Spacer -->
+<!-- Messages -->
+<td valign="top" width="100%">
+	<!-- STATUS MESSAGES -->
+	<!-- RpRepeatGroupWhile RpFunctionPtr=rebootStatus_repeatWhileMoreStatusMessages -->
+	<table class="STATUSBOX" border="0" cellPadding="4" cellSpacing="0" align="center" width="100%">
+	<tr>
+	<td align="left">
+		<!-- RpDisplayText RpIdentifier=rebootStatus_getMessageTextId RpGetType=Complex RpGetPtr=rebootStatus_GetMessageText RpTextType=ASCIIExtended -->
+		status message text
+		<!-- RpEnd -->
+	</td>
+	</tr>
+	</table>
+	<!-- RpLastItemInGroup -->
+
+	<!-- ERROR MESSAGES -->
+	<!-- RpRepeatGroupWhile RpFunctionPtr=rebootStatus_repeatWhileMoreErrorMessages -->
+	<table class="ERRORBOX" border="0" cellPadding="4" cellSpacing="0" align="center" width="100%">
+	<tr>
+	<td align="left">
+        <!-- RpUseId RpId=rebootStatus_getMessageTextId RpItemType=DisplayText -->
+		error message text
+		<!-- RpEnd -->
+	</td>
+	</tr>
+	</table>
+	<!-- RpLastItemInGroup -->
+</td>
+</tr>
+<tr>
+<!-- Menu -->
+<td valign="top" nowrap="">
+	<!-- RpItemGroup RpIdentifier=rebootStatus_htmlMenu -->
+	<table border="0" width="100%" cellpadding="10" cellspacing="0">
+		<tr>
+		<td nowrap="">
+		<!-- RpRepeatGroupWhile RpFunctionPtr=rebootStatus_getMenuListWhile -->
+			<!-- RpDZT -->
+			<a href="
+			<!-- RpEnd -->
+			<!-- RpDisplayText RpGetType=Complex RpGetPtr=rebootStatus_getMenuItemUrl RpTextType=ASCIIExtended --> 
+			<!-- RpEnd -->
+			">
+			<!-- RpDisplayText RpGetType=Complex RpGetPtr=rebootStatus_getMenuItemName RpTextType=ASCIIExtended --> 
+			<!-- RpEnd -->
+			</a>
+			<br/>
+		<!-- RpLastItemInGroup -->
+		</td>
+		</tr>
+	</table>
+	<!-- RpLastItemInGroup -->
+</td>
+<td width="10">&nbsp;</td> <!-- Spacer -->
+<!-- Page Content -->
+<td valign="top" width="100%">
+	<table border="0" width="100%" cellpadding="10" cellspacing="0" class="BORDER">
+	<tr>
+	<td width="100%" class="PAGECONTENT">
+	
+		<h1 class="CONTENTHEADER">Rebooting...</h1>
+		
+		<table border="0" width="100%" cellpadding="0" cellspacing="0">
+		<tr>
+		<td>
+			<p>Reboot is in progress. You will be reconnected in approximately 45 seconds.
+			<p>If you are not reconnected automatically it may mean that the IP address has changed.
+			The new IP address is displayed on the serial port during start up. Type the new IP address
+			in your browser's address bar to reconnect manually.
+		</td>
+		</tr>
+		</table>
+	</td>
+	</tr>
+	</table>
+</td>
+</tr>
+</table>
+
+<!-- RpDataZeroTerminated RpIdentifier=rebootStatus_htmlCopyright -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" class="COPYRIGHT">
+    Copyright &copy; 2022 Copyright. All rights reserved.
+</td>
+</tr>
+</table>
+<!-- RpEnd -->
+
+</body>
+</html>
+

@@ -1,0 +1,115 @@
+<html><head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<title>
+Help For
+<!-- RpDisplayText RpIdentifier=cwmHelp_getProductNameId 
+     RpSize=20 RpTextType=ASCIIExtended RpGetType=Complex 
+     RpGetPtr=cwmHelp_getProductName --> <!-- RpEnd -->
+</title><link href="../css/stylesheet.css" rel="stylesheet" type="text/css">
+</head><body>
+<div class="help-page-header">
+<div class="help-page-header-logo">
+	<a href="http://www.digi.com/"><img alt="Digi International" src="../img/logo.png" border="0"/></a>
+</div><div class="help-page-header-title"><h1>
+Help For
+iDigi Device Manager Configurations
+</h1></div></div>
+
+<div class="help-page-header-separator"></div><div class="help-page-subheader">
+
+<div class="help-page-subheader-title">
+
+<h2>iDigi</h2></div>
+
+<div class="help-page-subheader-navigation">&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#" onclick="history.back(); return false;"><img src="img/back.gif" alt="Back"></a>&nbsp;&nbsp;<a href="#" onclick="history.forward(); return false;"><img src="/img/forward.gif" alt="Forward"></a></div></div>
+<div class="help-page-header-separator"></div><div class="help-page-content">
+<div class="help-page-content-body">
+
+<h2>iDigi Device Manager Configuration</h2>
+
+<p>The iDigi Device Manager Configuration page sets up the connection to the iDigi Server so the Digi device server knows 
+how to connect to the iDigi Server. The iDigi Server allows devices to be configured and managed from 
+remote locations. </p>
+
+<p>For more information about iDigi and how to remotely configure and manage this device, 
+please visit  <a href="http://www.idigi.com">www.idigi.com</a>. </p>
+
+<p>This device must be configured to properly communicate with the iDigi Server. First, you must configure 
+this device to have a proper Device ID. By default, the Device ID is created from the MAC address of the 
+device.</p>
+
+<p>Upon proper configuration of the iDigi Device ID, you must configure the following settings:</p>
+
+<a name="connections"></a><div class="help-section">
+<h3>Connection Settings</h3>
+<p>These settings are used in connecting to the iDigi Server.</p>
+<p>In a <i>device-initiated connection</i>, the Digi device server&nbsp;attempts to reach the iDigi 
+Server to establish the connection. An advantage of the device-initiated connection is that it can 
+be used on any network, whether the device has a public or private IP address - as long as the iDigi 
+Server is accessible on that network.
+</p><div class="help-field">
+
+<h4>Enable Device-Initiated iDigi Connection</h4>
+<p>When enabled, this device will initiate the connection to the iDigi Server.
+</p></div><div class="help-field">
+
+<h4>iDigi Server Address</h4>
+<p>The IP address or hostname of the iDigi Server.</p></div><div class="help-field">
+
+<h4>Automatically reconnect to iDigi after being disconnected</h4>
+<p>If enabled, the device will wait the specified amount of time after a connection 
+to the iDigi Server is ended, and then it will reconnect to the iDigi Server.</p></div></div>
+
+<a name="advanced"></a><div class="help-section">
+<h3>Advanced Settings</h3>
+<p>These settings are used in advanced situations and the defaults are typically suitable for most 
+environments. These settings are used to control the keep alive settings of the various interfaces 
+and should only be changed when the defaults do not properly work.</p><div class="help-field">
+
+<h4>Disconnect when the iDigi Connection is idle</h4>
+<h4>Idle Timeout</h4>
+<p>Enables or disables the idle timeout for the iDigi connection. If enabled, an idle connection 
+will be ended after the specified amount of time. Note that keep-alive messages are considered 
+to be normal packets and they will reset the idle timer.</p> </div> <div class="help-field">
+
+<h4>Authenticate to server with a password</h4>
+<h4>Password</h4>
+<p>If enabled, the device will send the password to the iDigi Server and the iDigi Server will
+validate the password before it allows any accesses to the device.</p>
+
+<h4>Receive/Transmit Interval</h4>
+<h4>Timeouts</h4>
+<p>Specifies the keep-alive interval to specify for packets received and packets transmitted. 
+These settings are used in conjunction with the Timeouts to signal when the connection has been 
+lost. The <i>Receive Interval</i> specifies how frequently the iDigi Server expects to receive a keep-alive 
+packet from the device if the iDigi connection is idle. The device will send keep-alive messages to 
+the iDigi Server at that interval when idle. The <i>Transmit Interval</i> specifies how frequently the iDigi 
+Server sends a keep-alive packet to the device if the iDigi connection is idle. The iDigi Server will 
+send keep-alive messages to the device at that interval when idle. </p> </div> <div class="help-field">
+
+<h4>Connection Method</h4>
+<p>Specifies the method by which the associated interface connects to the iDigi Server. The default 
+<i>TCP</i> is typically good enough for most connections, and it is the most efficient method of 
+connecting to the remote server in terms of speed and transmitted data bytes. If <i>SSL</i> option is 
+selected, it establishes the connection using the Secure Sockets Layer.</p> </div> <div class="help-field">
+
+<h4>Enabled validation of server SSL certificates</h4>
+<p>If SSL connection method is selected, it establishes SSL connection and validates certificate.
+Certificate must be loaded in the system. If this is not enabled and SSL connection method is selected,
+it still establishes SSL connection without certificate validation.</p> </div> </div>
+
+<div class="help-page-footer-separator"></div>
+<!-- RpDataZeroTerminated RpIdentifier=cwmConfig_htmlCopyright -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" class="COPYRIGHT">
+    Copyright &copy; 2022 Copyright. All rights reserved.
+</td>
+</tr>
+</table>
+<!-- RpEnd -->
+</body>
+</html>

@@ -1,0 +1,118 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>
+	Single Channel Monitor Box
+</title>
+<meta content="text/html; charset=windows-1252" http-equiv="Content-Type">
+<link type="text/css" href="../css/stylesheet.css" rel="stylesheet">
+
+</head>
+
+<body onunload="">
+    
+<table border="0" width="100%" cellpadding="4" cellspacing="0">
+<tr bgcolor="#ffffff">
+<td>
+	<a href="https://www.edwardsvacuum.com/"><img alt="Edwards Vacuum LLC" src="../img/logo.png" border="0"/></a>
+</td>
+<td width="10">&nbsp;</td>
+<td nowrap="" width="100%" valign="middle" class="PAGEHEADER">
+</td>
+</tr>
+<tr>
+<td></td>
+<td width="10">&nbsp;</td>
+<td valign="top" width="100%">
+	<table class="STATUSBOX" border="0" cellPadding="4" cellSpacing="0" align="center" width="100%">
+	<tr>
+	<td id="status" align="left">
+		Reboot the device to save settings. Once device is rebooted, close the webpage. Device cannot be operated normally while server is running.
+	</td>
+	</tr>
+	</table>
+	<table class="ERRORBOX" border="0" cellPadding="4" cellSpacing="0" align="center" width="100%">
+	<tr>
+	<td id="error" hidden align="left">
+	</td>
+	</tr>
+	</table>
+</td>
+</tr>
+<tr>
+<td valign="top" nowrap="">
+	<table border="0" width="100%" cellpadding="10" cellspacing="0">
+		<tr>
+			<td nowrap="">
+			   <a href="
+				  ../index.html">
+			   Home</a><br/>
+			   <a href="
+				  ../html/network_config.htm">
+			   Network</a><br/>
+			   <a href="
+			   	  ../html/setpoint_config.htm">
+			   Update Setpoint</a><br/>
+			</td>
+		 </tr>
+	</table>
+</td>
+<td width="10">&nbsp;</td>
+<td valign="top" width="100%">
+	<table border="0" width="100%" cellpadding="10" cellspacing="0" class="BORDER">
+	<tr>
+	<td width="100%" class="PAGECONTENT">
+	
+		<h1 class="CONTENTHEADER">Reboot</h1>
+		
+		<table border="0" width="100%" cellpadding="0" cellspacing="0">
+		<tr>
+		<td>
+			<form method="POST" name="reboot_form" onsubmit="return reboot();">
+			<table cellSpacing="2" cellPadding="0" border="0">
+			<tr>
+			<td>Click Reboot to reboot this device.</td>
+			</tr>
+			</table>
+			<br>
+			<hr class="SEPARATORLINE">
+			<table cellspacing="0" cellpadding="0" border="0">
+			<tr>
+			<td>
+				<input type="submit" value="Reboot">
+			</td>
+			</tr>
+			</table>
+			
+			</form>
+
+		</td>
+		</tr>
+		</table>
+	</td>
+	</tr>
+	</table>
+</td>
+</tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" class="COPYRIGHT">
+    Copyright &copy; 2022 Copyright. All rights reserved.
+</td>
+</tr>
+</table>
+<script language="JavaScript">
+	document.getElementById("status").innerHTML = "Reboot the device to save settings.";
+	document.getElementById("error").innerHTML = "";
+	document.getElementById("error").style.display = "none";
+
+	function reboot() {
+		return confirm("Click OK to confirm reboot. Web server will close automatically.");
+	}
+</script>	
+
+</body>
+</html>
+

@@ -1,0 +1,193 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>
+	Single Channel Monitor Box
+</title>
+<meta content="text/html; charset=windows-1252" http-equiv="Content-Type">
+<link type="text/css" href="../css/stylesheet.css" rel="stylesheet">
+
+</head>
+
+<body onunload="">
+    
+<table border="0" width="100%" cellpadding="4" cellspacing="0">
+<tr bgcolor="#ffffff">
+<td>
+	<a href="https://www.edwardsvacuum.com/"><img alt="Edwards Vacuum LLC" src="../img/logo.png" border="0"/></a>
+</td>
+<td width="10">&nbsp;</td>
+<td nowrap="" width="100%" valign="middle" class="PAGEHEADER">
+</td>
+</tr>
+<tr>
+<td></td>
+<td width="10">&nbsp;</td>
+<td valign="top" width="100%">
+	<table class="STATUSBOX" border="0" cellPadding="4" cellSpacing="0" align="center" width="100%">
+	<tr>
+	<td id="status" align="left">
+		View and update current setpoint.
+	</td>
+	</tr>
+	</table>
+	<table class="ERRORBOX" border="0" cellPadding="4" cellSpacing="0" align="center" width="100%">
+	<tr>
+	<td id="error" hidden align="left">
+	</td>
+	</tr>
+	</table>
+</td>
+</tr>
+<tr>
+<td valign="top" nowrap="">
+	<table border="0" width="100%" cellpadding="10" cellspacing="0">
+		<tr>
+			<td nowrap="">
+			   <a href="
+				../index.html">
+			   Home</a><br/>
+			   <a href="
+				../html/network_config.htm">
+			   Network</a><br/>
+			   <a href="
+				../html/reboot.htm">
+			   Reboot</a><br/>
+			</td>
+		 </tr>
+	</table>
+</td>
+<td width="10">&nbsp;</td>
+<td valign="top" width="100%">
+	<table border="0" width="100%" cellpadding="10" cellspacing="0" class="BORDER">
+	<tr>
+	<td width="100%" class="PAGECONTENT">
+	
+		<h1 class="CONTENTHEADER">Update Setpoint</h1>
+		
+		<table border="0" width="100%" cellpadding="0" cellspacing="0">
+		<tr>
+		<td>
+			<form method="POST" name="setpoint_form" onsubmit="return validateSetpoint();">
+			<table cellSpacing="2" cellPadding="0" border="0">
+			<tr><td>&nbsp;</td></tr>
+			<tr>
+				<table border="2" cellpadding="5" cellspacing="10" class="ORGANIZER">
+					<tr>
+						<td>Current Setpoint:&nbsp;</td>
+						<td id="current_setpoint" align="left">...</td>
+					</tr>
+				</table>
+			</tr>
+			<tr><td>&nbsp;</td></tr>
+			<tr>
+				<td>Update Setpoint: <input type="text" name="setpoint" value="" id="setpoint_id" size="15" maxlength="15"/> </td>
+			</tr>
+			<tr>
+				<td>
+					<input type="radio" name="temp_system" value="C" id="celsius" onclick="updateTempSystem('celsius');"/>
+					&nbsp;
+					<label for="enableDHCP">Celsius</label>
+				</td>
+				</tr>
+				<tr>
+				<td>
+					<input type="radio" name="temp_system" value="F" id="fahrenheit" onclick="updateTempSystem('fahrenheit');"/>
+					&nbsp;
+					<label for="disableDHCP">Fahrenheit</label>
+				</td>
+				</tr>
+			<tr><td>&nbsp;</td></tr>
+			<tr>
+				<td>
+					<input type="submit" value="Submit">
+				</td>
+			</tr>
+			</table>
+			<br>
+			<hr class="SEPARATORLINE">
+			<table cellspacing="0" cellpadding="0" border="0">
+			</table>
+			
+			</form>
+
+		</td>
+		</tr>
+		</table>
+	</td>
+	</tr>
+	</table>
+</td>
+</tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" class="COPYRIGHT">
+    Copyright &copy; 2022 Copyright. All rights reserved.
+</td>
+</tr>
+</table>
+
+<script src="../scripts/displayhandler.js" language="JavaScript"></script>
+<script src="../scripts/errhandler.js" language="JavaScript"></script>
+<script src="../scripts/validation.js" language="JavaScript"></script>
+<script language="JavaScript">
+	document.getElementById("status").innerHTML = "View and update current setpoint.";
+	document.getElementById("error").innerHTML = "";
+	document.getElementById("error").style.display = "none";
+
+	//current_setpoint is a global container that contains the current setpoint in celsius
+
+	initializeSetpoint('setpoint_config');
+
+	var err = new ErrorHandler();
+
+	function validateSetpoint() {
+		err.clearErrors(); // reset
+		let setpoint_choice = document.setpoint_form.setpoint;
+		if(current_temp_system == 'C') {
+			if(!isInRange(setpoint_choice.value, 0, 537)) {
+				err.addError(setpoint_choice, 'Invalid setpoint - Must be an integer that is at least 0 C and no greater than 537 C.');
+			}
+		}
+		else
+		{
+			if(!isInRange(setpoint_choice.value, 32, 999)) {
+				err.addError(setpoint_choice, 'Invalid setpoint - Must be an integer that is at least 32 F and no greater than 999 F.');
+			}
+		}
+
+
+		err.showError();
+		if (err.hasError()==0) {
+			document.getElementById("status").innerHTML = "Saving...";
+			setTimeout(refreshWithSuccess, 2500);
+		}
+
+        return !err.hasError();
+	}
+
+	function updateTempSystem(temp_system) {
+		let setpoint = current_setpoint; // this is always in fahrenheit
+		if (temp_system == 'celsius') {
+			if (current_temp_system != 'C') {
+				setpoint = convertToC(setpoint);
+				current_temp_system = 'C';
+			}
+		}
+		else {
+			current_temp_system = 'F';
+		}
+		document.getElementById("current_setpoint").innerHTML = setpoint + "&#176;" + current_temp_system;
+	}
+	function refreshWithSuccess() {
+		initializeSetpoint('setpoint_config');
+		document.getElementById("status").innerHTML = "Setpoint saved. Reboot the device to resume operation.";
+		alert("Setpoint successfully saved! Reboot the device to resume operation.");
+	}
+</script>	
+
+</body>
+</html>
+

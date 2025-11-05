@@ -1,0 +1,123 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>
+         Single Channel Monitor Box
+      </title>
+      <meta content="text/html; charset=windows-1252" http-equiv="Content-Type">
+      <link rel="stylesheet" href="css/stylesheet.css">
+   </head>
+   <body>
+      <table border="0" width="100%" cellpadding="4" cellspacing="0">
+         <tr bgcolor="#ffffff">
+            <td>
+               <a href="https://www.edwardsvacuum.com/"><img alt="Edwards Vacuum LLC" src="img/logo.png" border="0"/></a>
+            </td>
+            <td width="10">&nbsp;</td>
+            <!-- Spacer -->
+            <td nowrap="" width="100%" valign=middle class="PAGEHEADER">
+               Single Channel Monitor Box
+            </td>
+         </tr>
+         <tr>
+            <td></td>
+            <td width="10">&nbsp;</td>
+            <!-- Spacer -->
+            <td nowrap="" width="100%" valign="middle" class="CONTENTHEADER">Configure Network Settings </td>
+            <!-- Messages -->
+            <td valign=top width="100%">
+            </td>
+         </tr>
+         <tr>
+            <!-- MENU -->
+            <td valign=top nowrap="">
+               <table border="0" width="100%" cellpadding="10" cellspacing="0">
+                  <tr>
+                     <td nowrap="">
+                        <a href="
+                           html/network_config.htm">
+                        Network</a><br/>
+                        <a href="
+                           html/reboot.htm">
+                        Reboot</a><br/>
+                        <a href="
+                           html/setpoint_config.htm">
+                        Update Setpoint</a><br/>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+            <td width="10">&nbsp;</td>
+
+            <td valign=top width="100%">
+               <table border="0" width="100%" cellpadding="10" cellspacing="0" class="BORDER">
+                  <tr>
+                     <td width="100%" class="PAGECONTENT">
+                        <h1 class="CONTENTHEADER">Home</h1>
+                        <h2><p>Welcome to the management and configuration web interface.</p></h2>
+                        <h2><p>You can view most device settings here on the home tab.</p></h2>
+                        <h2><p>Settings can be updated with the tabs on the left.</p></h2>
+                        <h2><p>Remember to reboot the device once any new settings are selected.</p></h2> 
+                           <hr>
+
+                     </td>
+                  </tr>
+                  <tr>
+                     <td width="100%" class="PAGECONTENT">
+                        <table border="2" cellpadding="5" cellspacing="10" class="ORGANIZER">
+                           <tr>
+                              <td nowrap="" align=left ><h3>Current Setpoint:</h3></td>
+                              <td id="current_setpoint">...</td>
+                           </tr>
+                        </table>
+                     </td>
+
+                  </tr>
+                  <tr><td width="100%" class="PAGECONTENT"><hr></td></tr>
+                  <tr>
+                     <td width="100%" class="PAGECONTENT">
+                        <h3>Ethernet</h3>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td width="100%" class="PAGECONTENT">
+                        <table border="2" cellpadding="5" cellspacing="5" class="ORGANIZER">                        
+                           <tr>
+                              <td nowrap="" align=left >MAC Address:</td>
+                              <td id="mac_addr">...</td>
+                           </tr>
+
+                           <tr>
+                              <td nowrap="" align=left>IPv4 Address:</td>
+                              <td id="ip_addr">...</td>
+                           </tr>
+
+                           <tr>
+                              <td nowrap="" align=left>IPv6 Address:</td>
+                              <td id="ipv6_addr">...</td>
+                           </tr>
+                           
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+      </table>
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+         <tr>
+            <td align=center class="COPYRIGHT">
+               Copyright &copy; 2022 Copyright. All rights reserved.
+            </td>
+         </tr>
+      </table>
+      <script src="scripts/utils.js" language="JavaScript"></script>
+      <script src="scripts/errhandler.js" language="JavaScript"></script>
+      <script src="scripts/validation.js" language="JavaScript"></script>
+      <script src="scripts/displayhandler.js" language="JavaScript"></script>
+      <script>
+      initializeSetpoint();
+      document.getElementById("current_setpoint").innerHTML = current_setpoint + "&#176;" + current_temp_system;
+      updateDisplay('home');
+      </script>
+   </body>
+</html>
