@@ -1,8 +1,7 @@
 
 <img src="overview.png" alt="SAM logo" width="800"/>
-<img src="logo_sam.png" alt="SAM logo" width="200"/>
 
-# SAM: Single Channel Temperature Monitor
+# SAM: Single Channel Temperature Monitor  <img src="logo_sam.png" alt="SAM logo" width="200"/>
 
 ## Overview
 **SAM** (Single-channel Analog Monitor) is a low-cost temperature monitor designed to enable simple temperature monitoring on a variety of TMS heaters. It continuously measures temperature using a Type K thermocouple and alerts operators when the temperature drops below a configured setpoint. The goal is to provide an inexpensive, accurate, and user-friendly thermal monitoring system suitable for industrial or laboratory environments.
