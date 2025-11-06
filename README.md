@@ -1,4 +1,5 @@
 
+<img src="overview.png" alt="SAM logo" width="200"/>
 <img src="logo_sam.png" alt="SAM logo" width="200"/>
 
 # SAM: Single Channel Temperature Monitor
