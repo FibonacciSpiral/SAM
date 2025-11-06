@@ -94,7 +94,9 @@
 - Recommended MCU RAM: **≥128kB** (prototype uses 160kB).   
 
 ## License
-This project is open for educational and development purposes. Licensing details to be determined.
+This project is not licensed for redistribution or modification.  
+All rights reserved © 2025 Giselle Dockterburke.
+
 
 ## Authors
 Software Developed by Giselle Dockterburke at the Hillsboro PC in collaboration with Div Tummala who designed the hardware configuration.
